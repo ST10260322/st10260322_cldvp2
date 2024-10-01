@@ -1,0 +1,59 @@
+﻿@model st10260322_cldvp2.Models.TableEntityModel // Replace with your actual namespace
+
+@{
+    ViewData["Title"] = "Azure Integration";
+}
+
+<h1 class="text-center my-4">Azure Integration</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h2 class="text-primary">Store Information into Azure Tables</h2>
+            <form asp-action="StoreData" method="post" class="form-group">
+                <div class="form-row">
+                    <div class="col">
+                        <input type="text" asp-for="TableName" class="form-control" placeholder="Enter Table Name" required />
+                    </div>
+                    <div class="col">
+                        <input type="text" asp-for="PartitionKey" class="form-control" placeholder="Enter Partition Key" required />
+                    </div>
+                    <div class="col">
+                        <input type="text" asp-for="RowKey" class="form-control" placeholder="Enter Row Key" required />
+                    </div>
+                </div>
+                <input type="text" asp-for="Data" class="form-control my-2" placeholder="Enter data for Azure Table" required />
+                <button type="submit" class="btn btn-success btn-block">Submit</button>
+            </form>
+
+            <h2 class="text-primary mt-4">Write to Blob Storage</h2>
+            <form asp-action="WriteBlob" method="post" enctype="multipart/form-data" class="form-group">
+                <input type="file" name="file" class="form-control-file" required />
+                <input type="text" name="containerName" class="form-control my-2" placeholder="Enter Container Name" required />
+                <input type="text" name="blobName" class="form-control my-2" placeholder="Enter Blob Name" required />
+                <button type="submit" class="btn btn-primary btn-block">Upload</button>
+            </form>
+
+            <h2 class="text-primary mt-4">Queue Transaction Info</h2>
+            <form asp-action="QueueTransaction" method="post" class="form-group">
+                <div class="form-row">
+                    <div class="col">
+                        <input type="text" name="queueName" class="form-control" placeholder="Enter Queue Name" required />
+                    </div>
+                    <div class="col">
+                        <input type="text" name="transactionData" class="form-control" placeholder="Enter Transaction Information" required />
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-warning btn-block">Queue Transaction</button>
+            </form>
+
+            <h2 class="text-primary mt-4">Write to Azure Files</h2>
+            <form asp-action="WriteFile" method="post" enctype="multipart/form-data" class="form-group">
+                <input type="file" name="file" class="form-control-file" required />
+                <input type="text" name="shareName" class="form-control my-2" placeholder="Enter Share Name" required />
+                <input type="text" name="fileName" class="form-control my-2" placeholder="Enter File Name" required />
+                <button type="submit" class="btn btn-danger btn-block">Upload File</button>
+            </form>
+        </div>
+    </div>
+</div>

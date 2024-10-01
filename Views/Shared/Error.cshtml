@@ -1,0 +1,21 @@
+﻿@model st10260322_cldvp2.Models.ErrorViewModel
+
+@{
+    ViewData["Title"] = "Error";
+}
+
+<h1 class="text-danger">Error</h1>
+<div>
+    An error occurred while processing your request.
+</div>
+
+@if (Model.ShowRequestId)
+{
+    <p>
+        Request ID: <code>@Model.RequestId</code>
+    </p>
+}
+
+<p>
+    <a href="@Url.Action("Index", "Home")">Return to Home</a>
+</p>
