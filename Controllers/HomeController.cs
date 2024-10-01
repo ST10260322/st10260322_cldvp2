@@ -110,4 +110,7 @@ public class HomeController : Controller
 
         return View("Error", new ErrorViewModel { RequestId = HttpContext.TraceIdentifier });
     }
+
+    
+    
 }
